@@ -1,5 +1,5 @@
 # Como iniciar o projeto
-"npm serve" para iniciar o projeto
+"npm install" para instalar a pasta node_modules, e "npm serve" para iniciar o projeto
 
 
 # Requisito 
