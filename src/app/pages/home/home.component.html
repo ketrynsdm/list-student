@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="mat-card">
+    <div class="list">
+      <table mat-table [dataSource]="getTableList()">
+        <ng-container matColumnDef="Nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.Nome}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Sexo">
+          <th mat-header-cell *matHeaderCellDef> Sexo </th>
+          <td mat-cell *matCellDef="let element"> {{element.Sexo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DataNascimento">
+          <th mat-header-cell *matHeaderCellDef> Data De Nascimento </th>
+          <td mat-cell *matCellDef="let element"> {{element.DataNascimento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Adicionar">
+          <th mat-header-cell *matHeaderCellDef> Adicionar </th>
+          <td mat-cell *matCellDef="let element"> <app-button (click)="add()" label="Adicionar" ></app-button> </td>
+        </ng-container>
+        <ng-container matColumnDef="Editar">
+          <th mat-header-cell *matHeaderCellDef> Editar </th>
+          <td mat-cell *matCellDef="let element"> <app-button (click)="onButtonClick(element.PessoaId)" label="Editar" [disabled]="!element.PessoaId"></app-button> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Delete">
+          <th mat-header-cell *matHeaderCellDef> Deletar </th>
+          <td mat-cell *matCellDef="let element"> <app-button (click)="Delete(element.PessoaId)" label="Deletar"></app-button> </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="pagination">
+      <app-button label="<" (click)="handlePagination('prev')" [disabled]="handleVerifyButtonPagination('prev')"></app-button>
+      <app-button label=">" (click)="handlePagination('next')" [disabled]="handleVerifyButtonPagination('next')"></app-button>
+    </div>
+  </div>
+
+</div>
